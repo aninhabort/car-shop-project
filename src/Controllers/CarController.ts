@@ -16,19 +16,21 @@ export default class CarController {
   }
 
   public async create() {
+    const { model, year, color, status, buyValue, doorsQty, seatsQty } = this.req.body;
+
     const car: ICar = {
-      model: this.req.body.model,
-      year: this.req.body.year,
-      color: this.req.body.color,
-      status: this.req.body.status,
-      buyValue: this.req.body.buyValue,
-      doorsQty: this.req.body.doorsQty,
-      seatsQty: this.req.body.seatsQty,
+      model, 
+      year, 
+      color,
+      status,
+      buyValue,
+      doorsQty,
+      seatsQty,
     };
 
     try {
       const newCar = await this.service.createCars(car);
-      return this.res.status(200).json(newCar);
+      return this.res.status(201).json(newCar);
     } catch (error) {
       this.next(error);
     }
