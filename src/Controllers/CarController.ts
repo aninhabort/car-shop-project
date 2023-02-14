@@ -3,10 +3,10 @@ import ICar from '../Interfaces/ICar';
 import CarsService from '../Services/CarsService';
 
 export default class CarController {
-  private req: Request;
-  private res: Response;
-  private next: NextFunction;
-  private service: CarsService;
+  req: Request;
+  res: Response;
+  next: NextFunction;
+  service: CarsService;
 
   constructor(req: Request, res: Response, next: NextFunction) {
     this.req = req;
@@ -16,23 +16,13 @@ export default class CarController {
   }
 
   public async create() {
-    const { model, year, color, status, buyValue, doorsQty, seatsQty } = this.req.body;
-
-    const car: ICar = {
-      model, 
-      year, 
-      color,
-      status,
-      buyValue,
-      doorsQty,
-      seatsQty,
-    };
+    const car: ICar = { ...this.req.body };
 
     try {
       const newCar = await this.service.createCars(car);
       return this.res.status(201).json(newCar);
     } catch (error) {
-      this.next(error);
+      this.next({ message: 'Erro Interno' });
     }
   }
 }

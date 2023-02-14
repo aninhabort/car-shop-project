@@ -13,6 +13,11 @@ export default class CarsService {
   public async createCars(car: ICar) {
     const carsODM = new CarsODM();
     const newCar = await carsODM.createCar(car);
-    return this.createCarDomain(newCar);
+    const create = this.createCarDomain(newCar);
+
+    if (create === null) {
+      throw Error('Invalid car information');
+    }
+    return create;
   }
 }
