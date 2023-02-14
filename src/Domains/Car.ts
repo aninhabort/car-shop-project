@@ -11,17 +11,17 @@ export default class Car extends Vehicle {
     this.seatsQty = car.seatsQty;
   }
 
-  public get getDoorsQty(): number {
+  get getDoorsQty(): number {
     return this.doorsQty;
   }
-  public set setDoorsQty(value: number) {
+  set setDoorsQty(value: number) {
     this.doorsQty = value;
   }
 
-  public get getSeatsQty(): number {
+  get getSeatsQty(): number {
     return this.seatsQty;
   }
-  public set setSeatsQty(value: number) {
+  set setSeatsQty(value: number) {
     this.seatsQty = value;
   }
 }

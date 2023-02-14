@@ -1,12 +1,12 @@
 import { IVehicle } from '../Interfaces/IVehicle';
 
 export default class Vehicle {
-  private id: string | undefined;
-  private model: string;
-  private year: number;
-  private color: string;
-  private status: boolean | undefined;
-  private buyValue: number;
+  protected id: string | undefined;
+  protected model: string;
+  protected year: number;
+  protected color: string;
+  protected status: boolean | undefined;
+  protected buyValue: number;
 
   constructor(car: IVehicle) {
     this.id = car.id;
@@ -17,45 +17,45 @@ export default class Vehicle {
     this.buyValue = car.buyValue;
   }
 
-  public get getId(): string | undefined {
+  get getId(): string | undefined {
     return this.id;
   }
-  public set setId(value: string) {
+  set setId(value: string) {
     this.id = value;
   }
 
-  public get getModel(): string {
+  get getModel(): string {
     return this.model;
   }
-  public set setModel(value: string) {
+  set setModel(value: string) {
     this.model = value;
   }
 
-  public get getYear(): number {
+  get getYear(): number {
     return this.year;
   }
-  public set SetYear(value: number) {
+  set SetYear(value: number) {
     this.year = value;
   }
 
-  public get getColor(): string {
+  get getColor(): string {
     return this.color;
   }
-  public set setColor(value: string) {
+  set setColor(value: string) {
     this.color = value;
   }
 
-  public get getStatus(): boolean | undefined {
+  get getStatus(): boolean | undefined {
     return this.status;
   }
-  public set setStatus(value: boolean) {
+  set setStatus(value: boolean) {
     this.status = value;
   }
 
-  public get getBuyValue(): number {
+  get getBuyValue(): number {
     return this.buyValue;
   }
-  public set setBuyValue(value: number) {
+  set setBuyValue(value: number) {
     this.buyValue = value;
   }
 }
