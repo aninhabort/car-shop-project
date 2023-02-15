@@ -7,6 +7,6 @@ routes.post('/cars', (req, res, next) => new CarController(req, res, next).creat
 
 routes.get('/cars', (req, res, next) => new CarController(req, res, next).getAll());
 
-routes.get('/cars/:id');
+routes.get('/cars/:id', (req, res, next) => new CarController(req, res, next).findById());
 
 export default routes;

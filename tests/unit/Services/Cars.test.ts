@@ -26,4 +26,26 @@ describe('Testar CarsService', function () {
 
     expect(result).to.be.deep.equal(carOutput);
   });
+
+  // it('Criando novo carro com invalido', async function () {
+  //   const carInput: ICar = {
+  //     id: '634852326b35b59438fbea2f',
+  //     model: 'Marea',
+  //     year: 2002,
+  //     color: 'Black',
+  //     status: true,
+  //     buyValue: 15.99,
+  //     doorsQty: 4,
+  //     seatsQty: 5,
+  //   };
+
+  //   sinon.stub(Model, 'create').resolves({});
+
+  //   try {
+  //     const service = new CarsService();
+  //     await service.createCars(carInput);
+  //   } catch (error) {
+  //     expect((error as Error).message).to.be.equal('Invalid Car!');
+  //   }
+  // });
 });
