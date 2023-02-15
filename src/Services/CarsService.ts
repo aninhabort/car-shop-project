@@ -20,4 +20,10 @@ export default class CarsService {
     }
     return create;
   }
+
+  public async getAllCars() {
+    const carsODM = new CarsODM();
+    const allCars = await carsODM.getAllCars();
+    return allCars;
+  }
 }
