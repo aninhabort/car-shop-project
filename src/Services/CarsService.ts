@@ -10,7 +10,7 @@ export default class CarsService {
     return null;
   }
 
-  public async createCars(car: ICar) {
+  public async createCars(car: ICar): Promise<Car | null> {
     const carsODM = new CarsODM();
     const newCar = await carsODM.create(car);
     const create = this.createCarDomain(newCar);
@@ -21,16 +21,21 @@ export default class CarsService {
     return create;
   }
 
-  public async getAllCars() {
+  public async getAllCars(): Promise<(Car | null)[]> {
     const carsODM = new CarsODM();
     const allCars = await carsODM.getAllCars();
     const carsMap = allCars.map((item) => this.createCarDomain(item));
     return carsMap;
   }
 
-  public async findById(id: string) {
+  public async findById(id: string): Promise<Car | null> {
     const carsODM = new CarsODM();
     const findCarById = await carsODM.findById(id);
-    return this.createCarDomain(findCarById);
+
+    if (findCarById) {
+      return this.createCarDomain(findCarById);
+    }
+
+    return null;
   }
 }

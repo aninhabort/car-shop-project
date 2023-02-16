@@ -3,8 +3,6 @@ import { isValidObjectId } from 'mongoose';
 import ICar from '../Interfaces/ICar';
 import CarsService from '../Services/CarsService';
 
-const INVALID_MONGO_ID = 'Invalid mongo id';
-
 export default class CarController {
   req: Request;
   res: Response;
@@ -46,14 +44,13 @@ export default class CarController {
     const { id } = this.req.params;
     const car = await this.service.findById(id);
 
-    if (isValidObjectId(id) === false) {
-      return this.res.status(422).json({ message: INVALID_MONGO_ID });
+    if (!isValidObjectId(id)) {
+      return this.res.status(422).json('Invalid mongo id');
     }
-
-    if (car === null) {
-      return this.res.status(404).json({ message: 'Car not found' });
+    if (!car) {
+      return this.res.status(404).json('Car not found');
     }
-
+    
     return this.res.status(200).json(car);
   }
 }
