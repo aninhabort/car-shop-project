@@ -21,10 +21,11 @@ export default class CarsService {
     return create;
   }
 
-  public async getAllCars(): Promise<ICar[]> {
+  public async getAllCars() {
     const carsODM = new CarsODM();
     const allCars = await carsODM.getAllCars();
-    return allCars;
+    const carsMap = allCars.map((item) => this.createCarDomain(item));
+    return carsMap;
   }
 
   public async findById(id: string) {
