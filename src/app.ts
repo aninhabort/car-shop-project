@@ -1,5 +1,5 @@
 import express from 'express';
-import carRoutes from './Routes/cars';
+import carRoutes from './Routes/Cars';
 import motorcycleRoutes from './Routes/Motorcycles';
 
 const app = express();
