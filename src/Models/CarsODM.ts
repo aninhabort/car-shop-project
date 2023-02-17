@@ -20,8 +20,7 @@ export default class CarsODM extends AbstractODM<ICar> {
     return this.model.find({});
   }
   
-  public async findById(id: string): Promise<ICar | null> {
-    const findOne = await this.model.findOne({ id });
-    return findOne;
+  public async findById(_id: string): Promise<ICar | null> {
+    return this.model.findOne({ _id });
   }
 }

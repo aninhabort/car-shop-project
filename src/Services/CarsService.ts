@@ -31,11 +31,6 @@ export default class CarsService {
   public async findById(id: string): Promise<Car | null> {
     const carsODM = new CarsODM();
     const findCarById = await carsODM.findById(id);
-
-    if (findCarById) {
-      return this.createCarDomain(findCarById);
-    }
-
-    return null;
+    return this.createCarDomain(findCarById);
   }
 }
