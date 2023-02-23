@@ -1,7 +1,7 @@
 # Projeto Car Shop
 - Projeto desenvolvido individualmente
 - Eu desenvolvi o arquivo na pasta:
-  -src/
+  - src/
     - Controllers
     - Domains
     - Interfaces
