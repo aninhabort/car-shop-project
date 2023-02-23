@@ -2,5 +2,12 @@
 
 - Projeto desenvolvido individualmente
 - Eu desenvolvi o arquivo na pasta:
-  - src
+  -src/
+    - Controllers
+    - Domains
+    - Interfaces
+    - middlewares
+    - Models
+    - Routes
+    - Services
   - teste/unit/Services/Vehicle.test.ts
